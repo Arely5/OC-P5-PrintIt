@@ -29,23 +29,23 @@ arrowRight.addEventListener('click', nextSlide);
 // Changement de slides
 function previousSlide() {
 	slideIndex--;
-	dotsIndex--;
 
 	if (slideIndex < 0) {
 		slideIndex = slides.length -1;
 	}
 
+	changeDotClass();
 	showCurrentSlide();
 }
 
 function nextSlide() {
 	slideIndex++;
-	dotsIndex++;
 
 	if (slideIndex >= slides.length) {
 		slideIndex = 0;
 	}
 
+	changeDotClass();
 	showCurrentSlide();
 }
 
@@ -59,13 +59,24 @@ function showCurrentSlide() {
 //fin gestion des slides
 
 // Bullet points
-var dotsNumber = slides.length;
-
 var dots = document.getElementById('dots');
-let dotsIndex = 0;
+var arrayDots = [];
 
 for (var i = 0; i < slides.length; i++) {
 	var dot = document.createElement('div');
 	dot.className = 'dot';
 	dots.appendChild(dot);
+	arrayDots.push(dot);
+}
+
+arrayDots[0].classList.add('dot_selected');
+
+function changeDotClass() {
+	for (var i = 0; i < arrayDots.length; i++) {
+		if (i === slideIndex) {
+			arrayDots[i].classList.add('dot_selected');
+		} else {
+			arrayDots[i].classList.remove('dot_selected');
+		}
+	}
 }
