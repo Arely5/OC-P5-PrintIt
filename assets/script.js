@@ -59,11 +59,11 @@ function showCurrentSlide() {
 //fin gestion des slides
 
 // Bullet points
-var dots = document.getElementById('dots');
-var arrayDots = [];
+const dots = document.getElementById('dots');
+let arrayDots = [];
 
-for (var i = 0; i < slides.length; i++) {
-	var dot = document.createElement('div');
+for (let i = 0; i < slides.length; i++) {
+	const dot = document.createElement('div');
 	dot.className = 'dot';
 	dots.appendChild(dot);
 	arrayDots.push(dot);
@@ -72,7 +72,7 @@ for (var i = 0; i < slides.length; i++) {
 arrayDots[0].classList.add('dot_selected');
 
 function changeDotClass() {
-	for (var i = 0; i < arrayDots.length; i++) {
+	for (let i = 0; i < arrayDots.length; i++) {
 		if (i === slideIndex) {
 			arrayDots[i].classList.add('dot_selected');
 		} else {
